@@ -2,10 +2,13 @@ package at.htl.vehicle;
 
 import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.Test;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
+import static junit.framework.TestCase.fail;
 
 public class VehicleTest {
     public static final String DRIVER_STRING = "org.apache.derby.jdbc.ClientDriver";
@@ -38,5 +41,10 @@ public class VehicleTest {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void firstTest(){
+        fail();
     }
 }
