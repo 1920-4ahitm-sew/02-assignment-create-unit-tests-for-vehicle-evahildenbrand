@@ -1,5 +1,6 @@
 package at.htl.vehicle;
 
+import org.junit.AfterClass;
 import org.junit.Before;
 
 import java.sql.Connection;
@@ -24,6 +25,18 @@ public class VehicleTest {
             System.out.println("Verbindung zur Datenbank nicht möglich: \n"
                                 + e.getMessage() + "\n");
             System.exit(1);
+        }
+    }
+
+    @AfterClass
+    public static void teardownJdbc(){
+        try{
+            if(conn != null || !conn.isClosed()){
+                conn.close();
+                System.out.println("Goodbye!");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }
