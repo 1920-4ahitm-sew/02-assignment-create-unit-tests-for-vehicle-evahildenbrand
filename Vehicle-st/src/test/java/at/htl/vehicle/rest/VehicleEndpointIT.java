@@ -1,7 +1,7 @@
 package at.htl.vehicle.rest;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -16,10 +16,10 @@ public class VehicleEndpointIT {
     private Client client;
     private WebTarget target;
 
-    @Before
+    @BeforeEach
     public void initClient(){
         this.client = ClientBuilder.newClient();
-        this.target = client.target("http://localhost:8080/vehicle/rs/vehicle")
+        this.target = client.target("http://localhost:8080/vehicle/api/vehicle");
     }
 
     @Test
@@ -30,6 +30,7 @@ public class VehicleEndpointIT {
         System.out.println("payload = " + payload);
     }
 
+    /*
     @Test
     public void fetchVehicle2(){
         Response response = this.target.request(MediaType.APPLICATION_JSON).get();
@@ -37,4 +38,6 @@ public class VehicleEndpointIT {
         String payload = response.readEntity(String.class);
         System.out.println("payload = " + payload);
     }
+    */
+
 }
