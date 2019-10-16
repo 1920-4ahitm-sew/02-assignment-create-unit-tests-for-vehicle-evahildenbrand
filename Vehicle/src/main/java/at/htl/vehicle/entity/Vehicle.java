@@ -1,8 +1,16 @@
 package at.htl.vehicle.entity;
 
 public class Vehicle {
-    String brand;
-    String type;
+    private String brand;
+    private String type;
+
+    public Vehicle() {
+    }
+
+    public Vehicle(String brand, String type) {
+        this.brand = brand;
+        this.type = type;
+    }
 
     public String getBrand() {
         return brand;
