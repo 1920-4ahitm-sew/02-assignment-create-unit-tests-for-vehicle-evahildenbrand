@@ -42,11 +42,18 @@ public class VehicleEndpointIT {
         System.out.println("payload = " + payload);
         assertThat(payload,not(empty()));
 
-        JsonObject dedicatedVehicle = this.target.path("43").request(MediaType.APPLICATION_JSON).get(JsonObject.class);
+        JsonObject vehicle = payload.getJsonObject(0);
+        assertThat(vehicle.getString("brand"),equalTo("Opel 42"));
+        assertThat(vehicle.getString("type"),startsWith("Commodore"));
+
+        JsonObject dedicatedVehicle = this.target.path("43")
+                .request(MediaType.APPLICATION_JSON)
+                .get(JsonObject.class);
         assertThat(dedicatedVehicle.getString("brand"),containsString("43"));
         assertThat(dedicatedVehicle.getString("brand"),equalTo("Opel 43"));
 
-        Response deleteResponse = this.target.path("42").request(MediaType.APPLICATION_JSON).delete();
+        Response deleteResponse = this.target.path("42")
+                .request(MediaType.APPLICATION_JSON).delete();
         assertThat(deleteResponse.getStatus(),is(204));
     }
 
