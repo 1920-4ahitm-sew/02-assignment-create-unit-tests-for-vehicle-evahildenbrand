@@ -4,6 +4,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class Vehicle {
+    private Long id;
     private String brand;
     private String type;
 
