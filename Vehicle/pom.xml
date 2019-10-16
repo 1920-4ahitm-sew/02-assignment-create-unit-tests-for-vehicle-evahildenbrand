@@ -7,6 +7,23 @@
     <groupId>at.htl</groupId>
     <artifactId>vehicle</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
 
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-api</artifactId>
+            <version>8.0.0</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>vehicle</finalName>
+    </build>
 
 </project>
