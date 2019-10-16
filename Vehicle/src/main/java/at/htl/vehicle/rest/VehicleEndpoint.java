@@ -2,10 +2,7 @@ package at.htl.vehicle.rest;
 
 import at.htl.vehicle.entity.Vehicle;
 
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+import javax.ws.rs.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,5 +26,10 @@ public class VehicleEndpoint {
     @Path("{id}")
     public void delete(@PathParam("id") long id){
         System.out.println("deleted = " + id);
+    }
+
+    @POST
+    public void save(Vehicle vehicle){
+        System.out.println("Vehicle = " + vehicle);
     }
 }
